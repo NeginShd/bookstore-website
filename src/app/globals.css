@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme: premium, modern, deep-green-aligned */
+    --background: 140 30% 98%;          /* #f6fef9 - Off-white with a hint of green */
+    --foreground: 170 40% 16%;          /* #15332b - Deep green text */
+
+    --card: 142 40% 96%;                /* #f0fdf4 - Soft green card */
+    --card-foreground: 170 40% 16%;     /* #15332b */
+    --card-gradient: linear-gradient(135deg, #f0fdf4 60%, #bbf7d0 100%);
+    --card-shadow: 0 4px 32px 0 #bbf7d033;
+
+    --popover: 142 40% 98%;             /* #f6fef9 */
+    --popover-foreground: 170 40% 16%;  /* #15332b */
+    --popover-gradient: linear-gradient(135deg, #f6fef9 60%, #bbf7d0 100%);
+    --popover-shadow: 0 4px 32px 0 #bbf7d033;
+
+    --primary: 160 80% 30%;             /* #108554 - Deep Green (for contrast) */
+    --primary-foreground: 0 0% 100%;    /* #FFFFFF */
+
+    --destructive: 0 84.2% 60.2%;       /* #EF4444 */
+    --destructive-foreground: 0 0% 98%; /* #FEF2F2 */
+
+    --border: 142 35% 55%;              /* #6ba97e - Medium green border (for visibility) */
+    --input: 142 35% 55%;               /* #6ba97e */
+    --ring: 160 80% 30%;                /* #108554 - Primary Green (for focus visibility) */
+    --skeleton: 142 40% 96%;            /* #f0fdf4 */
+
+    --radius: 1rem;
+
+    /* Sidebar colors for the default light theme */
+    --sidebar-background: 142 40% 96%; /* #f0fdf4 */
+    --sidebar-foreground: 170 40% 16%; /* #15332b */
+    --sidebar-primary: 160 84% 39%;    /* #22c55e */
+    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-accent: 160 84% 39%;     /* #22c55e */
+    --sidebar-accent-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-border: 142 40% 85%;     /* #bbf7d0 */
+    --sidebar-ring: 142 71% 80%;       /* #a7f3d0 */
+  }
+
+  .dark {
+    /* Dark Theme: modern neutral and accent palette */
+    --background: 210 9% 13%;        /* #1E293B */
+    --foreground: 210 9% 96%;        /* #F8FAFC */
+
+    --card: 170 94% 6%;              /* #011a18 */
+    --card-foreground: 0 0% 100%;    /* #FFFFFF */
+
+    --popover: 170 94% 7%;           /* #01221e */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --primary: 170 94% 9%;           /* #022d2b - Deep Green */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --destructive: 0 84.2% 60.2%;    /* #EF4444 */
+    --destructive-foreground: 0 0% 98%;/* #FEF2F2 */
+
+    --border: 210 9% 30%;            /* #273449 */
+    --input: 210 9% 30%;             /* #273449 */
+    --ring: 160 84% 39%;             /* #22c55e */
+    --skeleton: 170 94% 13%;         /* #033c37 */
+
+    --radius: 1rem;
+
+    /* Unified chart colors (Indigo family) */
+    --chart-1: 217 90% 75%;           /* Indigo 300 */
+    --chart-2: 217 90% 54%;           /* Indigo 500 */
+    --chart-3: 217 90% 40%;           /* Indigo 600 */
+    --chart-4: 217 90% 30%;           /* Indigo 700 */
+    --chart-5: 217 90% 20%;           /* Indigo 800 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans leading-relaxed; /* Apply base font and colors, added leading-relaxed for line-height */
+  }
+  /* Headings style */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold; /* Sans-serif for headings */
+  }
+}

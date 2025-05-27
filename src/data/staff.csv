@@ -1,0 +1,22 @@
+full_name,username,email,job_title,phone,hire_date,address,national_id,gender,birth_date
+علی رضایی,alirezaei,ali.rezaei@example.com,Admin,09121234567,2018-05-10,تهران - خیابان آزادی,0012345678,مرد,1985-03-15
+مریم احمدی,mahmadi,m.ahmadi@example.com,Content Manager,09129876543,2019-07-22,تهران - خیابان ولیعصر,0023456789,زن,1990-11-02
+سعید محمدی,smohammadi,saeed.mohammadi@example.com,Order Manager,09123456789,2020-01-15,اصفهان - خیابان چهارباغ,0034567890,مرد,1988-06-25
+زهرا موسوی,zmoosavi,z.mousavi@example.com,Return Handler,09351234567,2021-03-30,شیراز - بلوار چمران,0045678901,زن,1992-09-10
+حسین کریمی,hkarimi,h.karimi@example.com,Support Agent,09135551234,2017-12-01,مشهد - خیابان احمدآباد,0056789012,مرد,1983-01-19
+فاطمه سادات حسینی,fs.hosseini,fs.hosseini@example.com,Content Manager,09121112233,2020-09-18,تهران - خیابان انقلاب,0067890123,زن,1991-04-12
+محمدرضا شریفی,mrsharifi,mr.sharifi@example.com,Order Manager,09124445566,2016-03-27,کرج - میدان شهدا,0078901234,مرد,1987-12-05
+الهام شاکری,elshakeri,el.shakeri@example.com,Gift Handler,09351112233,2022-02-14,تهران - خیابان شریعتی,0089012345,زن,1995-07-21
+رضا مرادی,rezamoradi,rezamoradi@example.com,Return Handler,09127778899,2019-11-09,قم - بلوار امین,0090123456,مرد,1989-10-30
+سارا یوسفی,sarayoosefi,s.yousefi@example.com,Support Agent,09136667788,2018-08-23,تبریز - خیابان امام,0101234567,زن,1993-02-17
+مهدی قاسمی,ghasemi.mehdi,ghasemi.mehdi@example.com,Security Admin,09129998877,2017-06-12,تهران - شهرک غرب,0112345678,مرد,1984-05-09
+پریسا محمدی,parisamohammadi,parisa.mohammadi@example.com,Gift Handler,09352223344,2021-04-19,رشت - بلوار گیلان,0123456789,زن,1996-08-28
+امیرحسین عباسی,amirabbasi,amir.abbasi@example.com,Admin,09123334455,2015-10-05,تهران - خیابان مطهری,0134567890,مرد,1982-09-14
+نگار رضوانی,negar.r,negar.r@example.com,Content Manager,09125556677,2020-12-03,اصفهان - خیابان شیخ بهایی,0145678901,زن,1994-03-22
+حامد شفیعی,hamedshafiee,hamed.shafiee@example.com,Order Manager,09128889900,2019-05-28,اهواز - کیانپارس,0156789012,مرد,1986-11-11
+سمانه سادات موسوی,samaneh.mousavi,samaneh.mousavi@example.com,Return Handler,09353334455,2021-07-15,یزد - صفائیه,0167890123,زن,1992-12-29
+یاسر قنبری,yaser.ghanbari,yaser.ghanbari@example.com,Support Agent,09137778899,2018-03-19,کرمانشاه - بلوار طاقبستان,0178901234,مرد,1985-08-03
+الهام نادری,elnaderi,el.naderi@example.com,Gift Handler,09354445566,2022-10-07,تهران - سعادت‌آباد,0189012345,زن,1997-06-16
+سعید رستمی,saeed.r,saeed.r@example.com,Security Admin,09121113344,2016-01-22,تهران - خیابان پاسداران,0190123456,مرد,1983-04-27
+مینا شریعتی,minashariati,minashariati@example.com,Content Manager,09126667788,2020-06-11,شیراز - معالی‌آباد,0201234567,زن,1991-09-19
+حسین یوسفی,hossein.yousefi,hossein.yousefi@example.com,Order Manager,09129990011,2017-08-30,مشهد - بلوار سجاد,0212345678,مرد,1988-02-13 
