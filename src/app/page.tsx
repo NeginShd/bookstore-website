@@ -257,7 +257,7 @@ function HeroSection({
         id="hero-heading"
         className="text-3xl sm:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 lg:mb-2 text-white tracking-tight drop-shadow-lg"
       >
-        به سبز خوش آمدید!
+        به کتاب‌فروشی هوشمند سبز خوش آمدید!
       </h1>
       <p className="text-base sm:text-lg lg:text-xl text-green-50 mb-6 sm:mb-7 lg:mb-8 font-medium drop-shadow-md max-w-2xl mx-auto">
         کتاب مورد علاقه بعدی خود را در دنیای سبز کشف کنید.
