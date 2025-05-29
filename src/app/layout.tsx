@@ -20,8 +20,20 @@ export const metadata: Metadata = {
   title: 'سبز',
   description: 'Your online bookstore for discovering and purchasing books.',
   icons: {
-    icon: "/logo.jpg", // Used for general favicons
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.jpg", sizes: "32x32" },
+      { url: "/logo.jpg", sizes: "16x16" },
+      { url: "/logo.jpg", sizes: "48x48" },
+    ],
+    shortcut: "/logo.jpg",
     apple: "/logo.jpg", // Used for Apple touch icons
+    other: [
+      {
+        rel: "apple-touch-icon-precomposed",
+        url: "/logo.jpg",
+      },
+    ],
   },
   openGraph: {
     title: 'سبز',

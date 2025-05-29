@@ -29,7 +29,7 @@
  */
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { ShoppingCart, ChevronDown, Sun, Moon, Menu, Home as HomeIcon, BookOpen, Book, Star, Globe, User, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -103,6 +103,7 @@ export default function Header() {
   const { getItemCount } = useCart();
   const { theme, toggleTheme } = useTheme();
   const router = useRouter();
+  const pathname = usePathname();
   const [hasMounted, setHasMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -250,13 +251,12 @@ export default function Header() {
           >
             <Link 
               href="/" 
-              className={`text-white hover:text-green-200 transition-all duration-300 font-semibold text-base px-4 py-2.5 rounded-lg hover:bg-green-900/20 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide hover:tracking-wider hover:scale-105 hover:shadow-lg hover:shadow-green-400/20 transform ${typeof window !== 'undefined' && window.location.pathname === '/' ? 'bg-green-900/30 text-green-100 shadow-md shadow-green-400/25' : ''}`}
-              aria-current={typeof window !== 'undefined' && window.location.pathname === '/' ? 'page' : undefined}
+              className={`text-white hover:text-green-200 transition-all duration-300 font-semibold text-base px-4 py-2.5 rounded-lg hover:bg-green-900/20 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide hover:tracking-wider hover:scale-105 hover:shadow-lg hover:shadow-green-400/20 transform ${pathname === '/' ? 'bg-green-900/30 text-green-100 shadow-md shadow-green-400/25' : ''}`}
+              aria-current={pathname === '/' ? 'page' : undefined}
             >
               خانه
             </Link>
             
-            {/* Categories Mega Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button 
@@ -267,7 +267,7 @@ export default function Header() {
                   aria-label="باز کردن منوی دسته‌بندی کتاب‌ها"
                 >
                   دسته‌بندی‌ها
-                  <ChevronDown className="mr-2 h-4 w-4" aria-hidden="true" />
+                  <ChevronDown className="ms-2 h-4 w-4" aria-hidden="true" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent 
@@ -282,13 +282,21 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
             
-                          <Link 
-                href="/books" 
-                className="text-white hover:text-green-200 transition-all duration-300 font-semibold text-base px-4 py-2.5 rounded-lg hover:bg-green-900/20 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide hover:tracking-wider hover:scale-105 hover:shadow-lg hover:shadow-green-400/20 transform"
-                aria-current={typeof window !== 'undefined' && window.location.pathname === '/books' ? 'page' : undefined}
-              >
-                کتاب‌ها
-              </Link>
+            <Link 
+              href="/categories" 
+              className="text-white hover:text-green-200 transition-all duration-300 font-semibold text-base px-4 py-2.5 rounded-lg hover:bg-green-900/20 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide hover:tracking-wider hover:scale-105 hover:shadow-lg hover:shadow-green-400/20 transform"
+              aria-current={pathname === '/categories' ? 'page' : undefined}
+            >
+              مجموعه‌ها
+            </Link>
+            
+            <Link 
+              href="/books" 
+              className="text-white hover:text-green-200 transition-all duration-300 font-semibold text-base px-4 py-2.5 rounded-lg hover:bg-green-900/20 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide hover:tracking-wider hover:scale-105 hover:shadow-lg hover:shadow-green-400/20 transform"
+              aria-current={pathname === '/books' ? 'page' : undefined}
+            >
+              کتاب‌ها
+            </Link>
           </nav>
 
           {/* Center: Logo */}
@@ -324,14 +332,14 @@ export default function Header() {
               <Link 
                 href="/bestsellers" 
                 className="text-green-100 hover:text-white transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-green-900/30 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide backdrop-blur-sm hover:tracking-wider hover:scale-105 transform"
-                aria-current={typeof window !== 'undefined' && window.location.pathname === '/bestsellers' ? 'page' : undefined}
+                aria-current={pathname === '/bestsellers' ? 'page' : undefined}
               >
                 پرفروش‌ها
               </Link>
               <Link 
                 href="/contact" 
                 className="text-green-100 hover:text-white transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-green-900/30 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-green-900 tracking-wide backdrop-blur-sm hover:tracking-wider hover:scale-105 transform"
-                aria-current={typeof window !== 'undefined' && window.location.pathname === '/contact' ? 'page' : undefined}
+                aria-current={pathname === '/contact' ? 'page' : undefined}
               >
                 تماس
               </Link>
@@ -406,12 +414,12 @@ export default function Header() {
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/account" className="cursor-pointer">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         حساب من
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={logout} className="text-red-600 cursor-pointer">
-                      <X className="mr-2 h-4 w-4" />
+                      <X className="ms-2 h-4 w-4" />
                       خروج
                     </DropdownMenuItem>
                   </>
@@ -419,19 +427,19 @@ export default function Header() {
                   <>
                     <DropdownMenuItem asChild>
                       <Link href="/login">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         ورود
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/register"> 
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                           ثبت نام
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/staff/login">
-                        <Globe className="mr-2 h-4 w-4" />
+                        <Globe className="ms-2 h-4 w-4" />
                         ورود کارکنان
                       </Link>
                     </DropdownMenuItem>
@@ -464,7 +472,7 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="text-white hover:text-green-200 hover:bg-green-900/30 transition-all duration-200 font-semibold px-3 py-2 text-sm tracking-wide">
                   دسته‌ها
-                  <ChevronDown className="mr-1.5 h-3.5 w-3.5" />
+                  <ChevronDown className="ms-1.5 h-3.5 w-3.5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[700px] max-h-[60vh] overflow-y-auto p-0" align="center">
@@ -473,6 +481,10 @@ export default function Header() {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
+            
+            <Link href="/categories" className="text-white hover:text-green-200 transition-colors duration-200 font-semibold px-3 py-2 rounded-lg hover:bg-green-900/20 text-sm tracking-wide">
+              مجموعه‌ها
+            </Link>
             
             <Link href="/books" className="text-white hover:text-green-200 transition-colors duration-200 font-semibold px-3 py-2 rounded-lg hover:bg-green-900/20 text-sm tracking-wide">
               کتاب‌ها
@@ -522,12 +534,12 @@ export default function Header() {
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/account" className="cursor-pointer">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         حساب من
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={logout} className="text-red-600 cursor-pointer">
-                      <X className="mr-2 h-4 w-4" />
+                      <X className="ms-2 h-4 w-4" />
                       خروج
                     </DropdownMenuItem>
                   </>
@@ -535,19 +547,19 @@ export default function Header() {
                   <>
                     <DropdownMenuItem asChild>
                       <Link href="/login">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         ورود
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/register"> 
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                           ثبت نام
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/staff/login">
-                        <Globe className="mr-2 h-4 w-4" />
+                        <Globe className="ms-2 h-4 w-4" />
                         ورود کارکنان
                       </Link>
                     </DropdownMenuItem>
@@ -644,12 +656,12 @@ export default function Header() {
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/account" className="cursor-pointer">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         حساب من
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={logout} className="text-red-600 cursor-pointer">
-                      <X className="mr-2 h-4 w-4" />
+                      <X className="ms-2 h-4 w-4" />
                       خروج
                     </DropdownMenuItem>
                   </>
@@ -657,19 +669,19 @@ export default function Header() {
                   <>
                     <DropdownMenuItem asChild>
                       <Link href="/login">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         ورود
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/register"> 
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                           ثبت نام
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/staff/login">
-                        <Globe className="mr-2 h-4 w-4" />
+                        <Globe className="ms-2 h-4 w-4" />
                         ورود کارکنان
                       </Link>
                     </DropdownMenuItem>
@@ -775,12 +787,12 @@ export default function Header() {
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/account" className="cursor-pointer">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         حساب من
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={logout} className="text-red-600 cursor-pointer">
-                      <X className="mr-2 h-4 w-4" />
+                      <X className="ms-2 h-4 w-4" />
                       خروج
                     </DropdownMenuItem>
                   </>
@@ -788,19 +800,19 @@ export default function Header() {
                   <>
                     <DropdownMenuItem asChild>
                       <Link href="/login">
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                         ورود
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/register"> 
-                        <User className="mr-2 h-4 w-4" />
+                        <User className="ms-2 h-4 w-4" />
                           ثبت نام
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/staff/login">
-                        <Globe className="mr-2 h-4 w-4" />
+                        <Globe className="ms-2 h-4 w-4" />
                         ورود کارکنان
                       </Link>
                     </DropdownMenuItem>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import type { Book, CartItem } from '@/lib/types';
@@ -18,9 +17,12 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]); // Initialize with empty array
+  const [mounted, setMounted] = useState(false);
 
   // Load cart from localStorage on client-side after mount
   useEffect(() => {
+    setMounted(true);
+    
     if (typeof window !== 'undefined') {
       const savedCart = localStorage.getItem('cartItems');
       if (savedCart) {
@@ -41,10 +43,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (mounted && typeof window !== 'undefined') {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
-  }, [cartItems]);
+  }, [cartItems, mounted]);
 
   const addToCart = (book: Book) => {
     setCartItems(prevItems => {

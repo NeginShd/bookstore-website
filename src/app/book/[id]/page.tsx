@@ -1,6 +1,6 @@
 'use client'; // This page needs to be a client component to fetch data or use hooks
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 // import { books } from '@/lib/data'; // Removed static data import
@@ -8,7 +8,7 @@ import type { Book } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BookOpen, FileText, Tag, Info, AlertTriangle, Sparkles, PackageCheck, PackageX } from 'lucide-react';
+import { ArrowRight, BookOpen, FileText, Tag, Info, AlertTriangle, Sparkles, PackageCheck, PackageX, ImageIcon } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skeleton } from '@/components/ui/skeleton';
 import { BookActions } from '@/components/books/BookActions';
@@ -54,15 +54,18 @@ const BookDetailSkeleton = () => (
 );
 
 export default function BookDetailPage({ params }: BookDetailPageProps) {
+  const { id } = use(params);
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
 
   useEffect(() => {
-    if (params.id) {
+    if (id) {
       setLoading(true);
       setError(null);
-      fetch(`/api/books?id=${params.id}`)
+      fetch(`/api/books?id=${id}`)
         .then(res => {
           if (!res.ok) {
             if (res.status === 404) throw new Error('کتاب مورد نظر یافت نشد!');
@@ -79,7 +82,16 @@ export default function BookDetailPage({ params }: BookDetailPageProps) {
           setLoading(false);
         });
     }
-  }, [params.id]);
+  }, [id]);
+
+  const handleImageError = () => {
+    setImageError(true);
+    setImageLoading(false);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
 
   if (loading) {
     return <BookDetailSkeleton />;
@@ -113,15 +125,34 @@ export default function BookDetailPage({ params }: BookDetailPageProps) {
       <Card className="overflow-hidden shadow-sm">
         <div className="grid md:grid-cols-2 gap-0">
           <div className="relative h-96 md:h-auto min-h-[300px] bg-muted/30 flex items-center justify-center p-4 md:p-8">
-            <Image
-              src={book.coverImage || '/default-cover.png'} // Fallback for cover image
-              alt={`جلد کتاب ${book.title}`}
-              width={300}
-              height={450}
-              style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%'}}
-              className="rounded-md shadow-lg"
-              priority // Consider removing priority if many images load, or set based on LCP
-            />
+            {/* Loading skeleton */}
+            {imageLoading && (
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse rounded-md flex items-center justify-center">
+                <ImageIcon className="h-16 w-16 text-gray-400" />
+              </div>
+            )}
+            
+            {/* Error fallback */}
+            {imageError ? (
+              <div className="w-[300px] h-[450px] bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-900 rounded-md shadow-lg flex flex-col items-center justify-center text-green-700 dark:text-green-300 p-8">
+                <ImageIcon className="h-20 w-20 mb-4" />
+                <span className="text-lg font-medium text-center mb-2">جلد کتاب</span>
+                <span className="text-sm text-center opacity-75 leading-relaxed">{book.title}</span>
+                <span className="text-xs text-center opacity-60 mt-2">نوشته: {book.author}</span>
+              </div>
+            ) : (
+              <Image
+                src={book.coverImage || '/default-book-cover.png'}
+                alt={`جلد کتاب ${book.title}`}
+                width={300}
+                height={450}
+                style={{ objectFit: 'cover', maxHeight: '100%', maxWidth: '100%'}}
+                className={`rounded-md shadow-lg transition-opacity duration-300 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
+                priority
+                onError={handleImageError}
+                onLoad={handleImageLoad}
+              />
+            )}
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-between">
             <div>
@@ -170,7 +201,7 @@ export default function BookDetailPage({ params }: BookDetailPageProps) {
                 <Separator className="my-4" />
 
                 <p className="text-3xl font-extrabold text-primary py-2">
-                  {book.price ? book.price.toLocaleString('fa-IR', { style: 'currency', currency: 'IRR' }).replace('IRR', 'ریال') : 'قیمت نامشخص'}
+                  {book.price ? `${Math.floor(book.price).toLocaleString('fa-IR')} تومان` : 'قیمت نامشخص'}
                 </p>
               </CardContent>
             </div>

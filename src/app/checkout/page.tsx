@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -131,7 +130,7 @@ export default function CheckoutPage() {
                   <p className="text-xs text-muted-foreground">{item.author}</p>
                 </div>
                 <p className="text-foreground">
-                  {(item.price * item.quantity).toLocaleString('fa-IR', { style: 'currency', currency: 'IRR' }).replace('IRR', 'ریال')}
+                  {Math.floor(item.price * item.quantity).toLocaleString('fa-IR')} تومان
                 </p>
               </div>
             ))}
@@ -140,7 +139,7 @@ export default function CheckoutPage() {
           <CardFooter className="pt-4 border-t">
             <div className="flex justify-between w-full text-xl font-bold text-primary">
               <span>جمع کل:</span>
-              <span>{total.toLocaleString('fa-IR', { style: 'currency', currency: 'IRR' }).replace('IRR', 'ریال')}</span>
+              <span>{Math.floor(total).toLocaleString('fa-IR')} تومان</span>
             </div>
           </CardFooter>
         </Card>

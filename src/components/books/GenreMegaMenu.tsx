@@ -28,18 +28,18 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'blue',
     description: 'آثار ادبی، رمان و داستان‌های مختلف',
     genres: [
-      { name: 'ادبیات کلاسیک جهان', slug: 'classic-world-literature', icon: '🏛️' },
-      { name: 'ادبیات کلاسیک ایران', slug: 'classic-iranian-literature', icon: '🇮🇷' },
-      { name: 'رمان معاصر', slug: 'contemporary-fiction', icon: '📚' },
-      { name: 'داستان کوتاه', slug: 'short-stories', icon: '📖' },
-      { name: 'علمی تخیلی', slug: 'science-fiction', icon: '🚀' },
-      { name: 'فانتزی', slug: 'fantasy', icon: '🧙‍♂️' },
-      { name: 'هراری', slug: 'horror', icon: '👻' },
-      { name: 'ویران‌شهری', slug: 'dystopian', icon: '🌆' },
-      { name: 'جنایی و پلیسی', slug: 'crime-mystery', icon: '🔍' },
-      { name: 'ماجراجویی', slug: 'adventure', icon: '🗺️' },
-      { name: 'عاشقانه', slug: 'romance', icon: '💕' },
-      { name: 'شاهکارهای جهان', slug: 'world-masterpieces', icon: '⭐' }
+      { name: 'ادبیات کلاسیک جهان', slug: 'classic-world-literature', icon: '' },
+      { name: 'ادبیات کلاسیک ایران', slug: 'classic-iranian-literature', icon: '' },
+      { name: 'رمان معاصر', slug: 'contemporary-fiction', icon: '' },
+      { name: 'داستان کوتاه', slug: 'short-stories', icon: '' },
+      { name: 'علمی تخیلی', slug: 'science-fiction', icon: '' },
+      { name: 'فانتزی', slug: 'fantasy', icon: '' },
+      { name: 'رمانتیک', slug: 'romance', icon: '' },
+      { name: 'تریلر', slug: 'thriller', icon: '' },
+      { name: 'جنایی و پلیسی', slug: 'crime-mystery', icon: '' },
+      { name: 'ماجراجویی', slug: 'adventure', icon: '' },
+      { name: 'عاشقانه', slug: 'romance', icon: '' },
+      { name: 'شاهکارهای جهان', slug: 'world-masterpieces', icon: '' }
     ]
   },
   {
@@ -48,18 +48,18 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'cyan',
     description: 'دانش علمی و فناوری‌های نوین',
     genres: [
-      { name: 'ریاضیات', slug: 'mathematics', icon: '🧮' },
-      { name: 'فیزیک', slug: 'physics', icon: '⚛️' },
-      { name: 'شیمی', slug: 'chemistry', icon: '🧪' },
-      { name: 'زیست‌شناسی', slug: 'biology', icon: '🧬' },
-      { name: 'زمین‌شناسی', slug: 'geology', icon: '🌍' },
-      { name: 'نجوم', slug: 'astronomy', icon: '🌟' },
-      { name: 'برنامه‌نویسی', slug: 'programming', icon: '💻' },
-      { name: 'هوش مصنوعی', slug: 'artificial-intelligence', icon: '🤖' },
-      { name: 'امنیت سایبری', slug: 'cybersecurity', icon: '🔒' },
-      { name: 'طراحی وب', slug: 'web-design', icon: '🌐' },
-      { name: 'داده‌کاوی', slug: 'data-science', icon: '📊' },
-      { name: 'مهندسی', slug: 'engineering', icon: '⚙️' }
+      { name: 'ریاضیات', slug: 'mathematics', icon: '' },
+      { name: 'فیزیک', slug: 'physics', icon: '' },
+      { name: 'شیمی', slug: 'chemistry', icon: '' },
+      { name: 'زیست‌شناسی', slug: 'biology', icon: '' },
+      { name: 'زمین‌شناسی', slug: 'geology', icon: '' },
+      { name: 'نجوم', slug: 'astronomy', icon: '' },
+      { name: 'برنامه‌نویسی', slug: 'programming', icon: '' },
+      { name: 'هوش مصنوعی', slug: 'artificial-intelligence', icon: '' },
+      { name: 'امنیت سایبری', slug: 'cybersecurity', icon: '' },
+      { name: 'طراحی وب', slug: 'web-design', icon: '' },
+      { name: 'داده‌کاوی', slug: 'data-science', icon: '' },
+      { name: 'مهندسی', slug: 'engineering', icon: '' }
     ]
   },
   {
@@ -68,17 +68,17 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'rose',
     description: 'علوم اجتماعی و انسانی',
     genres: [
-      { name: 'تاریخ ایران', slug: 'iranian-history', icon: '🏛️' },
-      { name: 'تاریخ جهان', slug: 'world-history', icon: '🌍' },
-      { name: 'تاریخ اسلام', slug: 'islamic-history', icon: '🕌' },
-      { name: 'فلسفه غرب', slug: 'western-philosophy', icon: '🏛️' },
-      { name: 'فلسفه اسلامی', slug: 'islamic-philosophy', icon: '☪️' },
-      { name: 'فلسفه شرق', slug: 'eastern-philosophy', icon: '☯️' },
-      { name: 'روان‌شناسی', slug: 'psychology', icon: '🧠' },
-      { name: 'جامعه‌شناسی', slug: 'sociology', icon: '👥' },
-      { name: 'انسان‌شناسی', slug: 'anthropology', icon: '🏺' },
-      { name: 'منطق', slug: 'logic', icon: '🧠' },
-      { name: 'اخلاق', slug: 'ethics', icon: '⚖️' }
+      { name: 'تاریخ ایران', slug: 'iranian-history', icon: '' },
+      { name: 'تاریخ جهان', slug: 'world-history', icon: '' },
+      { name: 'تاریخ اسلام', slug: 'islamic-history', icon: '' },
+      { name: 'فلسفه غرب', slug: 'western-philosophy', icon: '' },
+      { name: 'فلسفه اسلامی', slug: 'islamic-philosophy', icon: '' },
+      { name: 'فلسفه شرق', slug: 'eastern-philosophy', icon: '' },
+      { name: 'روان‌شناسی', slug: 'psychology', icon: '' },
+      { name: 'جامعه‌شناسی', slug: 'sociology', icon: '' },
+      { name: 'انسان‌شناسی', slug: 'anthropology', icon: '' },
+      { name: 'منطق', slug: 'logic', icon: '' },
+      { name: 'اخلاق', slug: 'ethics', icon: '' }
     ]
   },
   {
@@ -87,18 +87,18 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'green',
     description: 'رشد شخصی و مهارت‌های زندگی',
     genres: [
-      { name: 'خودشناسی', slug: 'self-awareness', icon: '🪞' },
-      { name: 'اعتماد به نفس', slug: 'self-confidence', icon: '💪' },
-      { name: 'مدیریت زمان', slug: 'time-management', icon: '⏰' },
-      { name: 'هدف‌گذاری', slug: 'goal-setting', icon: '🎯' },
-      { name: 'مهارت‌های اجتماعی', slug: 'social-skills', icon: '🤝' },
-      { name: 'فن بیان', slug: 'public-speaking', icon: '🎤' },
-      { name: 'مذاکره', slug: 'negotiation', icon: '🤝' },
-      { name: 'رهبری', slug: 'leadership', icon: '👑' },
-      { name: 'کارآفرینی', slug: 'entrepreneurship', icon: '🚀' },
-      { name: 'مدیریت', slug: 'management', icon: '👔' },
-      { name: 'بازاریابی', slug: 'marketing', icon: '📈' },
-      { name: 'سرمایه‌گذاری', slug: 'investment', icon: '💰' }
+      { name: 'خودشناسی', slug: 'self-awareness', icon: '' },
+      { name: 'اعتماد به نفس', slug: 'self-confidence', icon: '' },
+      { name: 'مدیریت زمان', slug: 'time-management', icon: '' },
+      { name: 'هدف‌گذاری', slug: 'goal-setting', icon: '' },
+      { name: 'مهارت‌های اجتماعی', slug: 'social-skills', icon: '' },
+      { name: 'فن بیان', slug: 'public-speaking', icon: '' },
+      { name: 'مذاکره', slug: 'negotiation', icon: '' },
+      { name: 'رهبری', slug: 'leadership', icon: '' },
+      { name: 'کارآفرینی', slug: 'entrepreneurship', icon: '' },
+      { name: 'مدیریت', slug: 'management', icon: '' },
+      { name: 'بازاریابی', slug: 'marketing', icon: '' },
+      { name: 'سرمایه‌گذاری', slug: 'investment', icon: '' }
     ]
   },
   {
@@ -107,16 +107,16 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'purple',
     description: 'هنرهای تجسمی، موسیقی و خلاقیت',
     genres: [
-      { name: 'نقاشی', slug: 'painting', icon: '🎨' },
-      { name: 'عکاسی', slug: 'photography', icon: '📸' },
-      { name: 'مجسمه‌سازی', slug: 'sculpture', icon: '🗿' },
-      { name: 'طراحی گرافیک', slug: 'graphic-design', icon: '🎯' },
-      { name: 'تئوری موسیقی', slug: 'music-theory', icon: '🎵' },
-      { name: 'آموزش سازها', slug: 'instruments', icon: '🎸' },
-      { name: 'تئاتر', slug: 'theater', icon: '🎭' },
-      { name: 'سینما', slug: 'cinema', icon: '🎬' },
-      { name: 'خلاقیت', slug: 'creativity', icon: '💡' },
-      { name: 'طراحی', slug: 'design', icon: '✏️' }
+      { name: 'نقاشی', slug: 'painting', icon: '' },
+      { name: 'عکاسی', slug: 'photography', icon: '' },
+      { name: 'مجسمه‌سازی', slug: 'sculpture', icon: '' },
+      { name: 'طراحی گرافیک', slug: 'graphic-design', icon: '' },
+      { name: 'تئوری موسیقی', slug: 'music-theory', icon: '' },
+      { name: 'آموزش سازها', slug: 'instruments', icon: '' },
+      { name: 'تئاتر', slug: 'theater', icon: '' },
+      { name: 'سینما', slug: 'cinema', icon: '' },
+      { name: 'خلاقیت', slug: 'creativity', icon: '' },
+      { name: 'طراحی', slug: 'design', icon: '' }
     ]
   },
   {
@@ -125,15 +125,15 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'red',
     description: 'علوم پزشکی و سلامت',
     genres: [
-      { name: 'آناتومی', slug: 'anatomy', icon: '🫀' },
-      { name: 'فیزیولوژی', slug: 'physiology', icon: '🧠' },
-      { name: 'پاتولوژی', slug: 'pathology', icon: '🔬' },
-      { name: 'داروشناسی', slug: 'pharmacology', icon: '💊' },
-      { name: 'تغذیه سالم', slug: 'healthy-nutrition', icon: '🥗' },
-      { name: 'ورزش و تناسب اندام', slug: 'fitness', icon: '💪' },
-      { name: 'یوگا و مدیتیشن', slug: 'yoga-meditation', icon: '🧘' },
-      { name: 'رژیم درمانی', slug: 'diet-therapy', icon: '⚖️' },
-      { name: 'طب سنتی', slug: 'traditional-medicine', icon: '🌿' }
+      { name: 'آناتومی', slug: 'anatomy', icon: '' },
+      { name: 'فیزیولوژی', slug: 'physiology', icon: '' },
+      { name: 'پاتولوژی', slug: 'pathology', icon: '' },
+      { name: 'داروشناسی', slug: 'pharmacology', icon: '' },
+      { name: 'تغذیه سالم', slug: 'healthy-nutrition', icon: '' },
+      { name: 'ورزش و تناسب اندام', slug: 'fitness', icon: '' },
+      { name: 'یوگا و مدیتیشن', slug: 'yoga-meditation', icon: '' },
+      { name: 'رژیم درمانی', slug: 'diet-therapy', icon: '' },
+      { name: 'طب سنتی', slug: 'traditional-medicine', icon: '' }
     ]
   },
   {
@@ -142,14 +142,14 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'amber',
     description: 'متون دینی و معنوی',
     genres: [
-      { name: 'قرآن و تفسیر', slug: 'quran-tafsir', icon: '📖' },
-      { name: 'احادیث', slug: 'hadith', icon: '📜' },
-      { name: 'فقه', slug: 'jurisprudence', icon: '⚖️' },
-      { name: 'اخلاق اسلامی', slug: 'islamic-ethics', icon: '✨' },
-      { name: 'عرفان', slug: 'mysticism', icon: '🌟' },
-      { name: 'ادیان جهان', slug: 'world-religions', icon: '🌍' },
-      { name: 'معنویت', slug: 'spirituality', icon: '🕊️' },
-      { name: 'دعا و ذکر', slug: 'prayer-dhikr', icon: '🤲' }
+      { name: 'قرآن و تفسیر', slug: 'quran-tafsir', icon: '' },
+      { name: 'احادیث', slug: 'hadith', icon: '' },
+      { name: 'فقه', slug: 'jurisprudence', icon: '' },
+      { name: 'اخلاق اسلامی', slug: 'islamic-ethics', icon: '' },
+      { name: 'عرفان', slug: 'mysticism', icon: '' },
+      { name: 'ادیان جهان', slug: 'world-religions', icon: '' },
+      { name: 'معنویت', slug: 'spirituality', icon: '' },
+      { name: 'دعا و ذکر', slug: 'prayer-dhikr', icon: '' }
     ]
   },
   {
@@ -158,15 +158,15 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'cyan',
     description: 'کتاب‌های مخصوص کودکان و نوجوانان',
     genres: [
-      { name: 'قصه‌های کودکانه', slug: 'children-stories', icon: '📚' },
-      { name: 'شعر کودک', slug: 'children-poetry', icon: '🎵' },
-      { name: 'آموزش حروف و اعداد', slug: 'letters-numbers', icon: '🔤' },
-      { name: 'رنگ‌آمیزی', slug: 'coloring-books', icon: '🎨' },
-      { name: 'ماجراجویی نوجوانان', slug: 'teen-adventure', icon: '🗺️' },
-      { name: 'علمی تخیلی نوجوانان', slug: 'teen-scifi', icon: '🚀' },
-      { name: 'رمان‌های نوجوانان', slug: 'teen-fiction', icon: '📖' },
-      { name: 'آموزش مهارت‌های زندگی', slug: 'life-skills-teens', icon: '🎯' },
-      { name: 'کتاب‌های تصویری', slug: 'picture-books', icon: '🖼️' }
+      { name: 'قصه‌های کودکانه', slug: 'children-stories', icon: '' },
+      { name: 'شعر کودک', slug: 'children-poetry', icon: '' },
+      { name: 'آموزش حروف و اعداد', slug: 'letters-numbers', icon: '' },
+      { name: 'رنگ‌آمیزی', slug: 'coloring-books', icon: '' },
+      { name: 'ماجراجویی نوجوانان', slug: 'teen-adventure', icon: '' },
+      { name: 'علمی تخیلی نوجوانان', slug: 'teen-scifi', icon: '' },
+      { name: 'رمان‌های نوجوانان', slug: 'teen-fiction', icon: '' },
+      { name: 'آموزش مهارت‌های زندگی', slug: 'life-skills-teens', icon: '' },
+      { name: 'کتاب‌های تصویری', slug: 'picture-books', icon: '' }
     ]
   },
   {
@@ -175,13 +175,13 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'slate',
     description: 'علوم حقوقی و قانون',
     genres: [
-      { name: 'حقوق مدنی', slug: 'civil-law', icon: '⚖️' },
-      { name: 'حقوق جزا', slug: 'criminal-law', icon: '🔒' },
-      { name: 'حقوق تجارت', slug: 'commercial-law', icon: '💼' },
-      { name: 'حقوق بین‌الملل', slug: 'international-law', icon: '🌍' },
-      { name: 'حقوق خانواده', slug: 'family-law', icon: '👨‍👩‍👧‍👦' },
-      { name: 'حقوق اداری', slug: 'administrative-law', icon: '🏛️' },
-      { name: 'حقوق قانون اساسی', slug: 'constitutional-law', icon: '📜' }
+      { name: 'حقوق مدنی', slug: 'civil-law', icon: '' },
+      { name: 'حقوق جزا', slug: 'criminal-law', icon: '' },
+      { name: 'حقوق تجارت', slug: 'commercial-law', icon: '' },
+      { name: 'حقوق بین‌الملل', slug: 'international-law', icon: '' },
+      { name: 'حقوق خانواده', slug: 'family-law', icon: '' },
+      { name: 'حقوق اداری', slug: 'administrative-law', icon: '' },
+      { name: 'حقوق قانون اساسی', slug: 'constitutional-law', icon: '' }
     ]
   },
   {
@@ -190,26 +190,26 @@ const comprehensiveCategories: CategoryGroup[] = [
     color: 'orange',
     description: 'خانه‌داری، آشپزی و سبک زندگی',
     genres: [
-      { name: 'آشپزی', slug: 'cooking', icon: '👨‍🍳' },
-      { name: 'شیرینی‌پزی', slug: 'baking', icon: '🧁' },
-      { name: 'دکوراسیون منزل', slug: 'home-decoration', icon: '🏠' },
-      { name: 'باغبانی', slug: 'gardening', icon: '🌱' },
-      { name: 'مد و پوشاک', slug: 'fashion', icon: '👗' },
-      { name: 'سفر', slug: 'travel', icon: '✈️' },
-      { name: 'عکاسی سفر', slug: 'travel-photography', icon: '📷' },
-      { name: 'سبک زندگی سالم', slug: 'healthy-lifestyle', icon: '🌿' }
+      { name: 'آشپزی', slug: 'cooking', icon: '' },
+      { name: 'شیرینی‌پزی', slug: 'baking', icon: '' },
+      { name: 'دکوراسیون منزل', slug: 'home-decoration', icon: '' },
+      { name: 'باغبانی', slug: 'gardening', icon: '' },
+      { name: 'مد و پوشاک', slug: 'fashion', icon: '' },
+      { name: 'سفر', slug: 'travel', icon: '' },
+      { name: 'عکاسی سفر', slug: 'travel-photography', icon: '' },
+      { name: 'سبک زندگی سالم', slug: 'healthy-lifestyle', icon: '' }
     ]
   }
 ];
 
-// ژانرهای محبوب با emoji
+// ژانرهای محبوب بدون emoji
 const trendingGenres = [
-  { name: 'رمان‌های پرفروش', slug: 'bestseller-novels', icon: '⭐' },
-  { name: 'کتاب‌های جدید', slug: 'new-releases', icon: '✨' },
-  { name: 'خودسازی', slug: 'self-improvement', icon: '💪' },
-  { name: 'علمی تخیلی', slug: 'science-fiction', icon: '🚀' },
-  { name: 'آشپزی', slug: 'cooking', icon: '👨‍🍳' },
-  { name: 'کودک', slug: 'children', icon: '👶' },
+  { name: 'رمان‌های پرفروش', slug: 'bestseller-novels', icon: '' },
+  { name: 'کتاب‌های جدید', slug: 'new-releases', icon: '' },
+  { name: 'خودسازی', slug: 'self-improvement', icon: '' },
+  { name: 'علمی تخیلی', slug: 'science-fiction', icon: '' },
+  { name: 'آشپزی', slug: 'cooking', icon: '' },
+  { name: 'کودک', slug: 'children', icon: '' },
 ];
 
 interface GenreMegaMenuProps {
@@ -324,9 +324,7 @@ export default function GenreMegaMenu({ onItemClick }: GenreMegaMenuProps) {
               onClick={handleGenreClick}
               className="group flex items-center gap-3 p-3 rounded-xl bg-green-700/50 text-green-100 text-sm font-medium hover:bg-green-600/70 hover:text-white transition-all duration-200 shadow-lg border border-green-600/80 hover:border-green-500/90 hover:shadow-green-400/20 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span className="text-lg group-hover:scale-110 transition-transform duration-200">
-                {genre.icon}
-              </span>
+              <Book className="h-4 w-4 group-hover:scale-110 transition-transform duration-200" />
               <span className="flex-1 truncate">{genre.name}</span>
               <ChevronRight className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
             </Link>
@@ -412,7 +410,7 @@ export default function GenreMegaMenu({ onItemClick }: GenreMegaMenuProps) {
             variant="outline"
             className="px-6 py-3 rounded-xl bg-primary/10 border-primary/30 text-primary text-sm font-semibold hover:bg-primary/20 hover:border-primary/50 hover:text-primary transition-all duration-200 shadow-lg hover:shadow-primary/20 hover:scale-105 active:scale-95"
           >
-            <Layers className="mr-2 h-4 w-4" />
+            <Layers className="ms-2 h-4 w-4" />
             نمایش همه دسته‌بندی‌ها ({comprehensiveCategories.length - visibleCategories.length} دسته دیگر)
           </Button>
         </div>

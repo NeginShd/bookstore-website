@@ -5,7 +5,6 @@ import { personalizedRecommendations } from '@/ai/flows/personalized-recommendat
 import type { PersonalizedRecommendationsOutput } from '@/ai/flows/personalized-recommendations';
 import type { Book } from '@/lib/types';
 import BookCard from './BookCard';
-import { books as allBooks } from '@/lib/data';
 import { Skeleton } from '@/components/ui/skeleton';
 
 // Mock data for history - in a real app, this would be dynamic
@@ -22,6 +21,16 @@ export default function RecommendationsSection() {
       try {
         setLoading(true);
         setError(null);
+        
+        // First, get all books from the API
+        const booksResponse = await fetch('/api/books');
+        if (!booksResponse.ok) {
+          throw new Error('Failed to fetch books');
+        }
+        const booksData = await booksResponse.json();
+        const allBooks: Book[] = booksData.books || [];
+        
+        // Then get AI recommendations
         const result: PersonalizedRecommendationsOutput = await personalizedRecommendations({
           browsingHistory,
           purchaseHistory,
@@ -36,11 +45,31 @@ export default function RecommendationsSection() {
           );
           setRecommendedBooks(booksToDisplay);
         } else {
-          setRecommendedBooks([]);
+          // Fallback: show some random books if AI recommendations fail
+          const fallbackBooks = allBooks
+            .filter(book => 
+              !browsingHistory.toLowerCase().includes(book.title.toLowerCase()) &&
+              !purchaseHistory.toLowerCase().includes(book.title.toLowerCase())
+            )
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 4);
+          setRecommendedBooks(fallbackBooks);
         }
       } catch (e) {
-        setError('خطا در دریافت پیشنهادات.');
-        console.error(e);
+        // Fallback: try to get some books anyway
+        try {
+          const booksResponse = await fetch('/api/books?limit=4');
+          if (booksResponse.ok) {
+            const booksData = await booksResponse.json();
+            setRecommendedBooks(booksData.books || []);
+          } else {
+            throw new Error('Failed to fetch fallback books');
+          }
+        } catch (fallbackError) {
+          setError('خطا در دریافت پیشنهادات.');
+          console.error('Recommendation error:', e);
+          console.error('Fallback error:', fallbackError);
+        }
       } finally {
         setLoading(false);
       }

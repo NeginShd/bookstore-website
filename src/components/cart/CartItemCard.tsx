@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -36,10 +35,10 @@ export default function CartItemCard({ item }: CartItemCardProps) {
           <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
           <p className="text-sm text-muted-foreground">{item.author}</p>
           <p className="text-md font-semibold text-primary mt-1">
-            {item.price.toLocaleString('fa-IR', { style: 'currency', currency: 'IRR' }).replace('IRR', 'ریال')}
+            {Math.floor(item.price).toLocaleString('fa-IR')} تومان
           </p>
         </div>
-        <div className="flex items-center space-x-2 rtl:space-x-reverse mt-2 sm:mt-0">
+        <div className="flex items-center gap-2 rtl:gap-x-reverse mt-2 sm:mt-0">
           <Button size="icon" variant="outline" onClick={() => handleQuantityChange(item.quantity - 1)} disabled={item.quantity <= 1}>
             <Minus className="h-4 w-4" />
           </Button>

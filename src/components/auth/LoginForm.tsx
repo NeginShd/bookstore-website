@@ -56,10 +56,10 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-lg shadow-md">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-lg shadow-md" dir="rtl">
       <h2 className="text-2xl font-bold text-center">ورود</h2>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">ایمیل:</label>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-start">ایمیل:</label>
         <input
           type="email"
           id="email"
@@ -67,11 +67,12 @@ export default function LoginForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 text-start"
+          dir="ltr"
         />
       </div>
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700">رمز عبور:</label>
+        <label htmlFor="password" className="block text-sm font-medium text-gray-700 text-start">رمز عبور:</label>
         <input
           type="password"
           id="password"
@@ -79,7 +80,8 @@ export default function LoginForm() {
           value={formData.password}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 text-start"
+          dir="ltr"
         />
       </div>
       <button

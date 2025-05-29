@@ -5,41 +5,57 @@
 @layer base {
   :root {
     /* Light Theme: premium, modern, deep-green-aligned */
-    --background: 140 30% 98%;          /* #f6fef9 - Off-white with a hint of green */
-    --foreground: 170 40% 16%;          /* #15332b - Deep green text */
+    --background: 142 69% 4%;
+    --foreground: 142 10% 95%;
 
-    --card: 142 40% 96%;                /* #f0fdf4 - Soft green card */
-    --card-foreground: 170 40% 16%;     /* #15332b */
+    --card: 142 50% 6%;
+    --card-foreground: 142 10% 95%;
     --card-gradient: linear-gradient(135deg, #f0fdf4 60%, #bbf7d0 100%);
     --card-shadow: 0 4px 32px 0 #bbf7d033;
 
-    --popover: 142 40% 98%;             /* #f6fef9 */
-    --popover-foreground: 170 40% 16%;  /* #15332b */
+    --popover: 142 50% 6%;
+    --popover-foreground: 142 10% 95%;
     --popover-gradient: linear-gradient(135deg, #f6fef9 60%, #bbf7d0 100%);
     --popover-shadow: 0 4px 32px 0 #bbf7d033;
 
-    --primary: 160 80% 30%;             /* #108554 - Deep Green (for contrast) */
-    --primary-foreground: 0 0% 100%;    /* #FFFFFF */
+    --primary: 142 84% 56%;
+    --primary-foreground: 142 10% 5%;
 
-    --destructive: 0 84.2% 60.2%;       /* #EF4444 */
-    --destructive-foreground: 0 0% 98%; /* #FEF2F2 */
+    --secondary: 142 30% 10%;
+    --secondary-foreground: 142 10% 95%;
 
-    --border: 142 35% 55%;              /* #6ba97e - Medium green border (for visibility) */
-    --input: 142 35% 55%;               /* #6ba97e */
-    --ring: 160 80% 30%;                /* #108554 - Primary Green (for focus visibility) */
-    --skeleton: 142 40% 96%;            /* #f0fdf4 */
+    --muted: 142 30% 10%;
+    --muted-foreground: 142 10% 60%;
 
-    --radius: 1rem;
+    --accent: 142 30% 10%;
+    --accent-foreground: 142 10% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --border: 142 30% 18%;
+    --input: 142 30% 18%;
+    --ring: 142 84% 56%;
+    --skeleton: 142 30% 15%;
+
+    --radius: 0.75rem;
 
     /* Sidebar colors for the default light theme */
-    --sidebar-background: 142 40% 96%; /* #f0fdf4 */
-    --sidebar-foreground: 170 40% 16%; /* #15332b */
-    --sidebar-primary: 160 84% 39%;    /* #22c55e */
-    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --sidebar-accent: 160 84% 39%;     /* #22c55e */
-    --sidebar-accent-foreground: 0 0% 100%; /* #FFFFFF */
-    --sidebar-border: 142 40% 85%;     /* #bbf7d0 */
-    --sidebar-ring: 142 71% 80%;       /* #a7f3d0 */
+    --sidebar-background: 142 50% 6%;
+    --sidebar-foreground: 142 10% 95%;
+    --sidebar-primary: 142 84% 56%;
+    --sidebar-primary-foreground: 142 10% 5%;
+    --sidebar-accent: 142 30% 10%;
+    --sidebar-accent-foreground: 142 10% 95%;
+    --sidebar-border: 142 30% 18%;
+    --sidebar-ring: 142 84% 56%;
+
+    /* Unified chart colors (Indigo family) */
+    --chart-1: 142 84% 56%;
+    --chart-2: 160 84% 56%;
+    --chart-3: 120 84% 56%;
+    --chart-4: 100 84% 56%;
+    --chart-5: 80 84% 56%;
   }
 
   .dark {
@@ -80,10 +96,191 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans leading-relaxed; /* Apply base font and colors, added leading-relaxed for line-height */
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
   /* Headings style */
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-semibold; /* Sans-serif for headings */
+  }
+
+  /* RTL Text Direction */
+  html[dir="rtl"] {
+    direction: rtl;
+  }
+
+  /* Persian Text Styling */
+  [lang="fa"], [dir="rtl"] {
+    font-family: var(--font-vazirmatn), sans-serif;
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Form Controls RTL */
+  [dir="rtl"] input, 
+  [dir="rtl"] textarea, 
+  [dir="rtl"] select {
+    text-align: right;
+    direction: rtl;
+  }
+
+  /* Placeholder text RTL */
+  [dir="rtl"] input::placeholder,
+  [dir="rtl"] textarea::placeholder {
+    text-align: right;
+    direction: rtl;
+  }
+}
+
+/* Hide scrollbar for horizontal book rows */
+@layer utilities {
+  /* Hide scrollbars but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom scrollbar for main content areas */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(34 197 94 / 0.3) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(34 197 94 / 0.3);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(34 197 94 / 0.5);
+  }
+
+  /* Better focus styles */
+  .focus-visible-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none;
+  }
+
+  /* Smooth transitions for interactive elements */
+  .interactive {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* Text overflow with proper Persian support */
+  .text-ellipsis-rtl {
+    direction: rtl;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Better image loading states */
+  .image-fade-in {
+    @apply transition-opacity duration-300 ease-out;
+  }
+
+  /* Enhanced shadow utilities */
+  .shadow-glow-green {
+    box-shadow: 0 0 20px rgb(34 197 94 / 0.3);
+  }
+  .shadow-glow-green-lg {
+    box-shadow: 0 0 30px rgb(34 197 94 / 0.4);
+  }
+
+  /* RTL-specific utilities */
+  .rtl-text {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .ltr-text {
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* RTL icon spacing - automatically reverses margins for icons */
+  .icon-start {
+    @apply me-2 ms-0;
+  }
+
+  .icon-end {
+    @apply ms-2 me-0;
+  }
+
+  /* RTL flex spacing that automatically reverses */
+  .space-x-rtl > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .space-x-2-rtl > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .space-x-3-rtl > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+    margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .space-x-4-rtl > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  /* Float utilities for RTL */
+  .float-start {
+    float: inline-start;
+  }
+
+  .float-end {
+    float: inline-end;
+  }
+
+  /* Text alignment for RTL */
+  .text-start {
+    text-align: start;
+  }
+
+  .text-end {
+    text-align: end;
+  }
+
+  /* Padding and margin logical properties */
+  .ps-safe {
+    padding-inline-start: 1rem;
+  }
+
+  .pe-safe {
+    padding-inline-end: 1rem;
+  }
+
+  .ms-safe {
+    margin-inline-start: 1rem;
+  }
+
+  .me-safe {
+    margin-inline-end: 1rem;
+  }
+
+  /* Border radius for RTL */
+  .rounded-s {
+    border-start-start-radius: 0.375rem;
+    border-end-start-radius: 0.375rem;
+  }
+
+  .rounded-e {
+    border-start-end-radius: 0.375rem;
+    border-end-end-radius: 0.375rem;
   }
 }
