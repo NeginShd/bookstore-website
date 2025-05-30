@@ -225,7 +225,7 @@ export default function Footer() {
             {enamadLoaded && (
               <div className="bg-white p-1 rounded-md">
                 <Image 
-                  src="/images/enamad.png" 
+                  src="/images/logos/enamad.png" 
                   alt="نماد اعتماد الکترونیکی" 
                   width={70} 
                   height={70} 
@@ -237,7 +237,7 @@ export default function Footer() {
             {samanLoaded && (
               <div className="bg-white p-1 rounded-md">
                 <Image 
-                  src="/images/samandehi.png" 
+                  src="/images/logos/samandehi.png" 
                   alt="نماد ساماندهی" 
                   width={70} 
                   height={70} 

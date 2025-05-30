@@ -1,152 +1,98 @@
-# کتابخانه آنلاین - پایگاه داده پویا
+# Bookstore Website
 
-یک وب‌سایت کتابخانه آنلاین مدرن که از پایگاه داده SQLite برای مدیریت کتاب‌ها استفاده می‌کند.
+A modern Next.js-based bookstore website with RTL support and AI-powered features.
 
-## ویژگی‌های جدید
+## Project Structure
 
-- **پایگاه داده SQLite**: تبدیل از CSV به پایگاه داده پویا
-- **قیمت‌گذاری هوشمند**: قیمت‌های واقعی بر اساس ژانر، زبان و ویژگی‌های کتاب
-- **رابط کاربری بهینه**: حذف قیمت از کارت‌ها برای تمرکز بر محتوا
-- **جستجوی پیشرفته**: جستجو در عنوان، نویسنده، خلاصه و ISBN
-- **دسته‌بندی هوشمند**: تولید خودکار دسته‌بندی‌ها بر اساس محتوا
-- **برچسب‌گذاری**: برچسب‌های خودکار بر اساس ژانر و محتوا
-- **فیلتر و مرتب‌سازی**: فیلتر بر اساس ژانر، دسته‌بندی، قیمت و امتیاز
-- **صفحه‌بندی**: پردازش کارآمد حجم زیاد داده‌ها
+- **/src/** - Source code for the application
+  - `/app/` - Next.js application routes and API endpoints
+  - `/components/` - React components
+  - `/lib/` - Utilities, services, and database operations
+  - `/contexts/` - React context providers
+  - `/hooks/` - Custom React hooks
+  - `/ai/` - AI integration with Genkit
 
-## راه‌اندازی سریع
+- **/public/** - Static assets
+  - `/images/` - Images for the website
+  - `/default/` - Default placeholder images
+  - `/favicons/` - Browser favicon files
 
-### 1. نصب وابستگی‌ها
-```bash
-npm install
-```
+- **/database/** - Database files and migrations
+  - `/data/` - CSV data files for initial database setup
+  - `/migrations/` - Database migration scripts
+  - `/backups/` - Database backup scripts
 
-### 2. ایجاد پایگاه داده
-```bash
-npm run migrate
-```
+- **/scripts/** - Utility scripts
+  - `/database/` - Database management scripts
+  - `/images/` - Image processing scripts
+  - `/build/` - Build and deployment scripts
+  - `/legacy/` - Legacy scripts kept for reference
 
-### 2.5. تنظیم قیمت‌های واقعی (اختیاری)
-```bash
-npm run update-prices
-```
+- **/docs/** - Documentation
+  - `/api/` - API documentation
+  - `/development/` - Development guides
+  - `/features/` - Feature documentation
 
-### 3. راه‌اندازی سرور
-```bash
-# استاندارد (پیشنهادی)
-npm run dev
+## Getting Started
 
-# یا با Turbopack (سریع‌تر ولی experimental)
-npm run dev:turbo
-```
+### Prerequisites
 
-سایت در آدرس `http://localhost:9002` قابل دسترسی خواهد بود.
+- Node.js 18+ 
+- npm or yarn
 
-## آمار پایگاه داده
+### Installation
 
-- **48 کتاب** منحصر به فرد
-- **8 دسته‌بندی** مختلف
-- **21 برچسب** متنوع
-- **پشتیبانی کامل از زبان فارسی**
+1. Clone the repository
+   ```
+   git clone [repository-url]
+   ```
 
-## API های موجود
+2. Install dependencies
+   ```
+   npm install
+   ```
 
-### کتاب‌ها
-```
-GET /api/books                    # دریافت تمام کتاب‌ها
-GET /api/books?id=1              # دریافت کتاب خاص
-GET /api/books?search=شازده      # جستجوی متنی
-GET /api/books?genre=رمان        # فیلتر ژانر
-GET /api/books?category=bestsellers # فیلتر دسته‌بندی
-GET /api/books?page=1&limit=10   # صفحه‌بندی
-```
+3. Set up the database
+   ```
+   npm run db:setup
+   npm run db:migrate
+   npm run migrate
+   ```
 
-### دسته‌بندی‌ها و ژانرها
-```
-GET /api/categories              # دریافت دسته‌بندی‌ها
-GET /api/genres                  # دریافت ژانرها
-```
+4. Start the development server
+   ```
+   npm run dev
+   ```
 
-## ساختار پروژه
+## Available Scripts
 
-```
-bookstore-website/
-├── src/
-│   ├── app/
-│   │   └── api/                 # API Routes
-│   ├── lib/
-│   │   ├── database.ts          # اتصال پایگاه داده
-│   │   ├── book-service.ts      # سرویس کتاب‌ها
-│   │   └── data.ts              # مدیریت داده‌ها
-│   ├── data/
-│   │   └── books.csv            # فایل CSV اصلی
-│   └── components/              # کامپوننت‌های React
-├── scripts/
-│   └── migrate-csv-to-db.ts     # اسکریپت تبدیل
-├── docs/
-│   └── DATABASE_SETUP.md        # راهنمای پایگاه داده
-└── books.db                     # فایل پایگاه داده SQLite
-```
+### Development
+- `npm run dev` - Start the development server
+- `npm run dev:turbo` - Start the development server with Turbopack
 
-## تکنولوژی‌های استفاده شده
+### Database
+- `npm run db:setup` - Initialize the database
+- `npm run db:migrate` - Run database migrations
+- `npm run db:backup` - Backup the database
+- `npm run db:reset` - Reset the database
+- `npm run migrate` - Migrate CSV data to the database
+- `npm run update-prices` - Update book prices
 
-- **Next.js 15** - فریمورک React
-- **TypeScript** - تایپ اسکریپت
-- **SQLite** - پایگاه داده
-- **Tailwind CSS** - استایل‌دهی
-- **Radix UI** - کامپوننت‌های UI
+### Build
+- `npm run build` - Build the application
+- `npm run start` - Start the production server
+- `npm run clean` - Clean the build directory
 
-## راهنما و مستندات
+### Images
+- `npm run update-covers` - Update book cover images
 
-- [راه‌اندازی پایگاه داده](./docs/DATABASE_SETUP.md)
-- [API Reference](./docs/DATABASE_SETUP.md#api-های-موجود)
+## Technology Stack
 
-## دسته‌بندی‌های موجود
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Database**: SQLite
+- **AI**: Google Gemini API via Genkit
+- **Components**: Shadcn UI, Radix UI
 
-- **hot-books**: کتاب‌های پرطرفدار (محبوبیت >= 80)
-- **bestsellers**: پرفروش‌ترین‌ها (رتبه فروش <= 50)
-- **new-releases**: انتشارات جدید (سال >= 2010)
-- **best-children-books**: بهترین کتاب‌های کودک
-- **le-monde-100**: کلاسیک‌های قدیمی (سال <= 1970)
-- **century-21-top-100**: بهترین‌های قرن 21 (سال >= 1990)
-- **man-booker**: کتاب‌های با امتیاز بالا (>= 4.5)
-- **houshang-golshiri**: ادبیات فارسی
+## Documentation
 
-## برچسب‌های خودکار
-
-- **ژانری**: رمان، شعر، داستان، فانتزی
-- **زبانی**: ترجمه، ادبیات فارسی
-- **دوره‌ای**: کلاسیک، معاصر
-- **موضوعی**: فلسفی، واقعی، آموزشی
-
-## به‌روزرسانی داده‌ها
-
-برای اضافه کردن کتاب‌های جدید:
-
-1. کتاب‌های جدید را به فایل `src/data/books.csv` اضافه کنید
-2. دستور `npm run migrate` را اجرا کنید
-3. سرور به صورت خودکار به‌روزرسانی می‌شود
-
-## Scripts موجود
-
-```bash
-npm run dev            # سرور توسعه (webpack)
-npm run dev:turbo      # سرور توسعه (turbopack - experimental)
-npm run build          # ساخت برای تولید
-npm run start          # اجرای نسخه تولید
-npm run migrate        # تبدیل CSV به پایگاه داده
-npm run update-prices  # به‌روزرسانی قیمت‌ها به تومان
-npm run lint           # بررسی کد
-npm run typecheck      # بررسی TypeScript
-```
-
-## مشارکت
-
-برای مشارکت در پروژه:
-
-1. Fork کنید
-2. تغییرات را اعمال کنید
-3. Pull Request ایجاد کنید
-
-## مجوز
-
-این پروژه تحت مجوز MIT منتشر شده است.
+For more detailed documentation, see the [docs directory](./docs/README.md). 

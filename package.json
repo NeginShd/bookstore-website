@@ -11,8 +11,14 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "migrate": "tsx scripts/migrate-csv-to-db.ts",
-    "update-prices": "tsx scripts/update-prices-to-toman.ts"
+    "migrate": "tsx scripts/database/migrate-csv-to-db.ts",
+    "update-prices": "tsx scripts/database/update-prices-to-toman.ts",
+    "update-covers": "tsx scripts/images/update-book-covers.ts",
+    "clean": "node scripts/build/clean-build.js",
+    "db:setup": "node database/setup.js",
+    "db:migrate": "node database/migrations/run-migrations.js",
+    "db:backup": "node database/backups/backup.js",
+    "db:reset": "node -e \"require('fs').existsSync('books.db') && require('fs').unlinkSync('books.db')\" && npm run db:migrate && npm run migrate"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.8.0",
@@ -40,6 +46,7 @@
     "@radix-ui/react-tooltip": "^1.1.8",
     "@tanstack-query-firebase/react": "^1.0.5",
     "@tanstack/react-query": "^5.66.0",
+    "@types/node-fetch": "^2.6.12",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "bcrypt": "^6.0.0",
@@ -52,6 +59,7 @@
     "genkit": "^1.8.0",
     "lucide-react": "^0.475.0",
     "next": "^15.3.2",
+    "node-fetch": "^2.7.0",
     "patch-package": "^8.0.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
@@ -59,7 +67,7 @@
     "react-hook-form": "^7.54.2",
     "recharts": "^2.15.1",
     "sqlite": "^4.2.1",
-    "sqlite3": "^5.1.6",
+    "sqlite3": "^5.1.7",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"

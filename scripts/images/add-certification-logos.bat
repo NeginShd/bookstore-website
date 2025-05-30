@@ -2,10 +2,10 @@
 echo === Adding E-Namad and Samandehi Certification Logos ===
 echo.
 echo 1. Obtain your E-Namad certification logo and save it as:
-echo    public\images\enamad.png
+echo    public\images\logos\enamad.png
 echo.
 echo 2. Obtain your Samandehi certification logo and save it as:
-echo    public\images\samandehi.png
+echo    public\images\logos\samandehi.png
 echo.
 echo 3. The footer has been configured to automatically display these logos.
 echo    If either logo file is missing, that logo will not be displayed.

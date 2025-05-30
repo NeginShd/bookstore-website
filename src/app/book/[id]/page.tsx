@@ -142,7 +142,7 @@ export default function BookDetailPage({ params }: BookDetailPageProps) {
               </div>
             ) : (
               <Image
-                src={book.coverImage || '/default-book-cover.png'}
+                src={book.coverImage || '/default/default-book-cover.png'}
                 alt={`جلد کتاب ${book.title}`}
                 width={300}
                 height={450}

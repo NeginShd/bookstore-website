@@ -1,6 +1,6 @@
 import fs from 'fs';
 import csv from 'csv-parser';
-import { initializeDatabase, getDatabase } from '../src/lib/database';
+import { initializeDatabase, getDatabase } from '../../src/lib/database';
 
 interface CSVBook {
   title: string;
@@ -46,10 +46,8 @@ function isHotBook(popularity: number): boolean {
 
 // Generate cover image URL based on title and author
 function generateCoverImageUrl(title: string, author: string): string {
-  // This is a placeholder - in real scenario you would use actual book cover APIs
-  const encodedTitle = encodeURIComponent(title);
-  const encodedAuthor = encodeURIComponent(author);
-  return `https://via.placeholder.com/300x450/006633/ffffff?text=${encodedTitle}+by+${encodedAuthor}`;
+  // Use our default book cover image instead of placeholder.com
+  return '/default/default-book-cover.png';
 }
 
 // Determine categories based on genre and other factors
@@ -118,7 +116,7 @@ export async function migrateCSVToDatabase() {
     const books: CSVBook[] = [];
     
     await new Promise<void>((resolve, reject) => {
-      fs.createReadStream('src/data/books.csv')
+      fs.createReadStream('database/data/books.csv')
         .pipe(csv())
         .on('data', (data: CSVBook) => books.push(data))
         .on('end', resolve)
