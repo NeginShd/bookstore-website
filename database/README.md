@@ -32,4 +32,4 @@ This will re-create the database from the CSV data in `src/data/books.csv`.
 
 ## Database Location
 
-The application looks for the database file `books.db` in the project root. When running migrations or database operations, the file will be created automatically if it doesn't exist. 
+The application looks for the database file `books.db` in the project root. When running migrations or database operations, the file will be created automatically if it doesn't exist.

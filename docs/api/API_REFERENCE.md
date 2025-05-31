@@ -97,8 +97,9 @@ All APIs follow a standard error response format:
 ```
 
 Common status codes:
+
 - 200: Success
 - 400: Bad request
 - 401: Unauthorized
 - 404: Not found
-- 500: Server error 
+- 500: Server error
