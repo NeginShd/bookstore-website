@@ -1,6 +1,6 @@
 'use client'; // This page needs to be a client component to fetch data or use hooks
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 // import { books } from '@/lib/data'; // Removed static data import
@@ -8,7 +8,7 @@ import type { Book } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BookOpen, FileText, Tag, Info, AlertTriangle, Sparkles, PackageCheck, PackageX, ImageIcon } from 'lucide-react';
+import { ArrowRight, FileText, Tag, Info, AlertTriangle, Sparkles, PackageCheck, PackageX, ImageIcon } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skeleton } from '@/components/ui/skeleton';
 import { BookActions } from '@/components/books/BookActions';
@@ -17,7 +17,9 @@ import { BookActions } from '@/components/books/BookActions';
 // If you still need SSG for some book pages, this needs a different approach with the API.
 
 interface BookDetailPageProps {
-  params: { id: string };
+  params: { 
+    id: string 
+  };
 }
 
 const BookDetailSkeleton = () => (
@@ -54,7 +56,7 @@ const BookDetailSkeleton = () => (
 );
 
 export default function BookDetailPage({ params }: BookDetailPageProps) {
-  const { id } = use(params);
+  const { id } = params;
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -118,7 +120,7 @@ export default function BookDetailPage({ params }: BookDetailPageProps) {
   }
 
   // Assume a stock property might exist on the book object from the API in the future
-  const stockStatus = book.stock === undefined ? 'unknown' : (book.stock > 0 ? 'inStock' : 'outOfStock');
+  const stockStatus = (book as any).stock === undefined ? 'unknown' : ((book as any).stock > 0 ? 'inStock' : 'outOfStock');
 
   return (
     <div className="container mx-auto max-w-4xl py-8 px-4">
@@ -182,7 +184,7 @@ export default function BookDetailPage({ params }: BookDetailPageProps) {
                   {stockStatus === 'unknown' && <Info className="ms-2 h-5 w-5 text-gray-400" />}
                   <span className="font-semibold me-2">وضعیت موجودی:</span>
                   <span>
-                    {stockStatus === 'inStock' && `موجود (تعداد: ${book.stock})`}
+                    {stockStatus === 'inStock' && `موجود (تعداد: ${(book as any).stock})`}
                     {stockStatus === 'outOfStock' && 'ناموجود'}
                     {stockStatus === 'unknown' && 'نامشخص'} 
                   </span>

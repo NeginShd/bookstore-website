@@ -13,19 +13,25 @@ export async function GET(request: Request) {
   const order = searchParams.get('order') || 'asc';
 
   try {
+    console.log(`API request: ${request.url}`);
+    console.log(`Params: id=${id}, query=${query}, genre=${genre}, category=${category}, page=${page}, limit=${limit}`);
+    
     const bookService = BookService.getInstance();
 
     // Fetch by ID
     if (id) {
+      console.log(`Fetching book by ID: ${id}`);
       const book = await bookService.getBookById(id);
       if (book) {
         return NextResponse.json(book);
       } else {
+        console.error(`Book not found with ID: ${id}`);
         return NextResponse.json({ error: 'Book not found' }, { status: 404 });
       }
     }
 
     // Search books with filters
+    console.log(`Searching books with filters`);
     const result = await bookService.searchBooks(
       query || undefined,
       genre || undefined, 
@@ -35,6 +41,12 @@ export async function GET(request: Request) {
       sortBy,
       order
     );
+
+    console.log(`Found ${result.books.length} books out of ${result.total} total`);
+    
+    if (result.books.length === 0) {
+      console.log('No books found with the current filters');
+    }
 
     return NextResponse.json({
       books: result.books,

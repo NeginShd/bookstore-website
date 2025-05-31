@@ -1,4 +1,4 @@
-import type { Book } from './types';
+import type { Book } from '@/lib/types';
 import type { BookCategory } from '@/components/books/BookRowsSection';
 
 /**
@@ -113,10 +113,10 @@ export function getRecommendedCategories(book: Book): BookCategory[] {
 
   // Award categories
   if (book.awards) {
-    if (book.awards.some(award => award.toLowerCase().includes('booker'))) {
+    if (book.awards.some((award: string) => award.toLowerCase().includes('booker'))) {
       recommendations.push('man-booker');
     }
-    if (book.awards.some(award => award.toLowerCase().includes('golshiri'))) {
+    if (book.awards.some((award: string) => award.toLowerCase().includes('golshiri'))) {
       recommendations.push('houshang-golshiri');
     }
   }
@@ -151,8 +151,10 @@ export function searchBooksInCategories(
     const matchingBooks = categoryBooks.filter(book =>
       book.title.toLowerCase().includes(searchQuery) ||
       book.author.toLowerCase().includes(searchQuery) ||
-      (book.tags && book.tags.some(tag => tag.toLowerCase().includes(searchQuery))) ||
-      book.description.toLowerCase().includes(searchQuery)
+      (book.tags && book.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery))) ||
+      book.description.toLowerCase().includes(searchQuery) ||
+      (book.genre && book.genre.toLowerCase().includes(searchQuery)) ||
+      (book.awards && book.awards.some((award: string) => award.toLowerCase().includes(searchQuery)))
     );
 
     if (matchingBooks.length > 0) {

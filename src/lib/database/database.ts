@@ -24,7 +24,7 @@ export async function getDatabase() {
     return db;
   }
 
-  const dbPath = path.join(process.cwd(), 'books.db');
+  const dbPath = path.join(process.cwd(), 'database', 'books.db');
   
   db = await open({
     filename: dbPath,

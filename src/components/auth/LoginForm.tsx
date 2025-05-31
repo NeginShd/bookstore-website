@@ -48,7 +48,7 @@ export default function LoginForm() {
         }
         setFormData({ email: '', password: '' }); // پاک کردن فرم
       }
-    } catch (err) {
+    } catch (_) {
       setError('خطا در ارتباط با سرور');
     } finally {
       setLoading(false);

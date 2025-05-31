@@ -1,4 +1,4 @@
-import type { Book } from './types';
+import type { Book } from '../types';
 
 // Client-side compatible book fetching
 export async function getBooks(): Promise<Book[]> {
@@ -18,7 +18,7 @@ export async function getBooks(): Promise<Book[]> {
   } else {
     // Server-side: use BookService directly
     try {
-      const { BookService } = await import('./book-service');
+      const { BookService } = await import('../services/book-service');
       const bookService = BookService.getInstance();
       return await bookService.getAllBooks();
     } catch (error) {
@@ -36,6 +36,6 @@ export async function getBookService() {
   if (typeof window !== 'undefined') {
     throw new Error('BookService can only be used on the server side');
   }
-  const { BookService } = await import('./book-service');
+  const { BookService } = await import('../services/book-service');
   return BookService;
 }

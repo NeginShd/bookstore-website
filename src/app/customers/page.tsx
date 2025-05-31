@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 interface Customer {
-  [key: string]: any;
+  [key: string]: string | number | boolean | null;
 }
 
 export default function CustomersPage() {

@@ -139,7 +139,7 @@ function SearchAwareHomePageContent() {
           <div className="mb-6 p-4 bg-green-900/20 rounded-xl border border-green-700/30">
             <div className="flex items-center justify-between">
               <p className="text-lg text-green-100 font-medium">
-                نتایج جستجو برای: <span className="font-bold text-green-300">"{queryFromUrl}"</span>
+                نتایج جستجو برای: <span className="font-bold text-green-300">&quot;{queryFromUrl}&quot;</span>
               </p>
               <button
                 onClick={clearSearch}

@@ -8,9 +8,10 @@ import { useState } from 'react';
 
 interface AddToCartButtonProps {
   book: Book;
+  disabled?: boolean;
 }
 
-export default function AddToCartButton({ book }: AddToCartButtonProps) {
+export default function AddToCartButton({ book, disabled = false }: AddToCartButtonProps) {
   const { addToCart } = useCart();
   const [success, setSuccess] = useState(false);
 
@@ -21,9 +22,14 @@ export default function AddToCartButton({ book }: AddToCartButtonProps) {
   };
 
   return (
-    <Button onClick={handleClick} className="w-full" variant={success ? 'success' : 'default'}>
+    <Button 
+      onClick={handleClick} 
+      className="w-full" 
+      variant={success ? 'success' : 'default'}
+      disabled={disabled}
+    >
       <ShoppingCart className="ms-2 h-4 w-4" />
-      افزودن به سبد
+      {disabled ? 'ناموجود' : 'افزودن به سبد'}
     </Button>
   );
 }

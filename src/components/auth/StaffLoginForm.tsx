@@ -40,7 +40,7 @@ export default function StaffLoginForm() {
         console.log('Staff user logged in:', data.staffUser);
         setFormData({ email: '', password: '' }); // پاک کردن فرم
       }
-    } catch (err) {
+    } catch (_) {
       setError('خطا در ارتباط با سرور');
     } finally {
       setLoading(false);

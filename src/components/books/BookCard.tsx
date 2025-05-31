@@ -100,7 +100,7 @@ export default function BookCard({
               </div>
             ) : (
               <Image
-                src={book.coverImage}
+                src={book.coverImage || "https://via.placeholder.com/300x450/006633/ffffff?text=No+Image"}
                 alt={`جلد کتاب ${book.title} نوشته ${book.author}`}
                 fill={true}
                 style={{ objectFit: 'cover' }}

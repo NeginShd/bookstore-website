@@ -1,9 +1,12 @@
 'use client';
 
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Star, BookOpen, Users, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { getCategoryStats } from '@/lib/categoryUtils';
+import { Progress } from '@/components/ui/progress';
+import { ChevronUp, ChevronDown } from 'lucide-react';
+import { getCategoryStats } from '@/lib/utils/categoryUtils';
 import type { Book } from '@/lib/types';
 import type { BookCategory } from './BookRowsSection';
 import { categoryTitles } from './BookRowsSection';

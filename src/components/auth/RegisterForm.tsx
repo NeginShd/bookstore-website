@@ -45,7 +45,7 @@ export default function RegisterForm() {
         // هدایت به صفحه ورود
         setTimeout(() => router.push('/login'), 1200);
       }
-    } catch (err) {
+    } catch (_) {
       setError('خطا در ارتباط با سرور');
     } finally {
       setLoading(false);

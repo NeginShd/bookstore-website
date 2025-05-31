@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import CategoryStatsCard from '@/components/books/CategoryStatsCard';
-import { categoryOrder, categoryTitles, type BookCategory } from '@/components/books/BookRowsSection';
+import { categoryOrder, categoryTitles } from '@/components/books/BookRowsSection';
 import { Button } from '@/components/ui/button';
 import { Grid, List, BarChart3 } from 'lucide-react';
 import Link from 'next/link';

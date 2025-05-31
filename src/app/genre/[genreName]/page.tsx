@@ -128,7 +128,7 @@ function GenrePageContent() {
       {!loading && books.length === 0 && !error && (
         <div className="flex flex-col items-center justify-center text-center py-20 min-h-[calc(100vh-30rem)]">
           <AlertTriangle className="w-16 h-16 text-muted-foreground mb-6" />
-          <h2 className="text-2xl font-bold mb-4">کتابی در ژانر "{displayGenre}" یافت نشد</h2>
+          <h2 className="text-2xl font-bold mb-4">کتابی در ژانر &quot;{displayGenre}&quot; یافت نشد</h2>
           <p className="text-muted-foreground mb-8 max-w-md">
             متاسفانه در حال حاضر کتابی با این ژانر و فیلترهای انتخابی شما در فروشگاه موجود نیست.
           </p>
