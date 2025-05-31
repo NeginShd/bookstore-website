@@ -273,6 +273,7 @@ export default function Header() {
               <DropdownMenuContent 
                 className="w-[800px] max-h-[70vh] overflow-y-auto p-0" 
                 align="start"
+                dir="rtl"
                 role="menu"
                 aria-label="دسته‌بندی کتاب‌ها"
               >
@@ -404,6 +405,7 @@ export default function Header() {
               <DropdownMenuContent 
                 align="end" 
                 className="w-56"
+                dir="rtl"
                 role="menu"
                 aria-label="منوی حساب کاربری"
               >
@@ -475,7 +477,7 @@ export default function Header() {
                   <ChevronDown className="ms-1.5 h-3.5 w-3.5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[700px] max-h-[60vh] overflow-y-auto p-0" align="center">
+              <DropdownMenuContent className="w-[700px] max-h-[60vh] overflow-y-auto p-0" align="center" dir="rtl">
                 <div className="p-3">
                   <GenreMegaMenu onItemClick={() => {}} />
                 </div>
@@ -526,7 +528,7 @@ export default function Header() {
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuContent align="end" className="w-48" dir="rtl">
                 {user ? (
                   <>
                     <DropdownMenuItem disabled className="text-sm text-muted-foreground font-medium border-b pb-2 mb-2">
@@ -588,6 +590,7 @@ export default function Header() {
               <SheetContent 
                 side="right" 
                 className="fixed inset-y-0 right-0 z-50 w-[90vw] max-w-xs bg-background/98 backdrop-blur-xl flex flex-col p-0 border-l border-border/50 shadow-2xl"
+                dir="rtl"
                 onOpenAutoFocus={(e) => e.preventDefault()}
               >
                 <SheetHeader className="p-4 border-b border-border/50 bg-muted/30 shrink-0">
@@ -648,7 +651,7 @@ export default function Header() {
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuContent align="end" className="w-48" dir="rtl">
                 {user ? (
                   <>
                     <DropdownMenuItem disabled className="text-sm text-muted-foreground font-medium border-b pb-2 mb-2">
@@ -710,6 +713,7 @@ export default function Header() {
               <SheetContent 
                 side="right" 
                 className="fixed inset-y-0 right-0 z-50 w-[85vw] max-w-sm bg-background/98 backdrop-blur-xl flex flex-col p-0 border-l border-border/50 shadow-2xl"
+                dir="rtl"
                 onOpenAutoFocus={(e) => e.preventDefault()}
               >
                 <SheetHeader className="p-5 border-b border-border/50 bg-muted/30 shrink-0">
@@ -779,7 +783,7 @@ export default function Header() {
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-52">
+              <DropdownMenuContent align="end" className="w-52" dir="rtl">
                 {user ? (
                   <>
                     <DropdownMenuItem disabled className="text-sm text-muted-foreground font-medium border-b pb-2 mb-2">
